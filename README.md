@@ -14,7 +14,7 @@ YOLO-MLF introduces a **Multi-Level Fusion (MLF)** convolutional architecture to
 
 > The architecture integrates seamlessly with the YOLO framework and is validated on the DOTA-v1.5 dataset, achieving **46.5% mAP@50** and **30.2% mAP@50-95**, outperforming mainstream YOLO models.
 >
-> | ![](/./assets/figure1.jpg) | ![](/./assets/figure1.jpg) |
+> | ![](/./assets/figure1.jpg) | ![](/./assets/figure2.jpg) |
 > | --------------------------- | --------------------------- |
 >
 > 
