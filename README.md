@@ -30,7 +30,7 @@ YOLO-MLF introduces a **Multi-Level Fusion (MLF)** convolutional architecture to
 
 - ✅ **Superior Generalization:** Proven effectiveness across DOTA-v1.5, NEU-DET, PCB-MARET, and more.
 
-  ![](/../assets/figure2.jpg)
+  ![](/./assets/figure2.jpg)
 
 ## 🧪 Benchmark Results
 
