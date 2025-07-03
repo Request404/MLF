@@ -1,0 +1,10 @@
+path: ../datasets/LIB-DET/LIB-DET # dataset root dir
+train: images/train
+val: images/val
+
+# Classes
+names:
+  0: concave point
+  1: pit
+  2: scratch
+  3: stain

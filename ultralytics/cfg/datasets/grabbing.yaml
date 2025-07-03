@@ -1,0 +1,26 @@
+path: ../datasets/grabbing # dataset root dir
+train: images/train
+val: images/val
+test: images/test
+
+# Classes
+names:
+  0: square
+  1: square_miss
+  2: rectangle
+  3: rectangle_miss
+# yueke.yaml
+# 其他设置...
+
+# 数据增强设置
+#augmentations:
+#  - type: "hflip"  # 水平翻转
+#  - type: "vflip"  # 垂直翻转
+#  - type: "color"  # 色差调整
+#    params:
+#      brightness: 0.3  # 亮度调整范围
+#      contrast: 0.3    # 对比度调整范围
+#      saturation: 0.3   # 饱和度调整范围
+#  - type: "scale"  # 变形
+#    params:
+#      scale: [0.8, 1.2]  # 缩放范围

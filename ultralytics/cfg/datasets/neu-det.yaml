@@ -1,0 +1,29 @@
+path: ../datasets/neu-det # dataset root dir
+train: train
+val: val
+test: test
+
+# Classes
+names:
+  0: crazing
+  1: inclusion
+  2: patches
+  3: pitted_surface
+  4: rolled-in_scale
+  5: scratches
+
+# yueke.yaml
+# 其他设置...
+
+# 数据增强设置
+augmentations:
+  - type: "hflip"  # 水平翻转
+  - type: "vflip"  # 垂直翻转
+  - type: "color"  # 色差调整
+    params:
+      brightness: 0.3  # 亮度调整范围
+      contrast: 0.3    # 对比度调整范围
+      saturation: 0.3   # 饱和度调整范围
+  - type: "scale"  # 变形
+    params:
+      scale: [0.8, 1.2]  # 缩放范围
