@@ -367,16 +367,4 @@ class PConv(nn.Module):
         torch.Size([1, 64, 128, 128])
     """
 
-    def __init__(self, c1, c2, n_div=4, g=1):
-        """Initialize the PConv layer with partial 3x3 and full 1x1 convolutions."""
-        super().__init__()
-        self.d3 = c1 // n_div
-        self.du = c1 - self.d3
-        self.pc3 = nn.Conv2d(self.d3, self.d3, 3, 1, 1, groups=g)
-        self.pw = Conv(c1, c2, 1, 1, 0, g=g)
-
-    def forward(self, x):
-        """Forward pass through the PConv layer."""
-        x1, x2 = torch.split(x, [self.d3, self.du], dim=1)
-        x1 = self.pc3(x1)
-        return self.pw(torch.cat((x1, x2), 1))
+    pass
