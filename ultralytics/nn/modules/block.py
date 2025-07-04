@@ -1212,19 +1212,7 @@ class MLF(nn.Module):
         torch.Size([1, 128, 128, 128])
     """
 
-    def __init__(self, c1, c2, n=1, shortcut=True, g=1, e=0.5):
-        super().__init__()
-        self.c = int(c2 * e)
-        self.cv1 = Conv(c1, self.c, 1, 1)
-        self.cv2 = Conv((n + 1) * self.c, c2, 1, 1)
-        self.m = nn.ModuleList([PDC(self.c, self.c, i, shortcut, g, e) for i in range(n)])
-
-    def forward(self, x):
-        """Performs a forward pass through the MLF module."""
-        y = [self.cv1(x)]
-        for m in self.m:
-            y.append(m(y[-1]))
-        return self.cv2(torch.cat(y, dim=1))
+    pass
 
 
 class PDC(nn.Module):
@@ -1258,20 +1246,4 @@ class PDC(nn.Module):
         torch.Size([1, 64, 64, 64])
     """
 
-    def __init__(self, c1, c2, n=1, shortcut=True, g=1, e=0.5):
-        super().__init__()
-        self.c = int(c1 * e)
-        self.cv1 = PConv(c1, self.c, 4, g=g)
-        self.cv2 = PConv(self.c, self.c, 2, g=g)
-        self.m = nn.Sequential(*(Conv(self.c, self.c, 3, 1, g=g) for _ in range(n + 1)))
-        self.cv3 = Conv(self.c * 2, c2, 1, 1)
-        self.add = shortcut and c1 == c2
-
-    def forward(self, x):
-        """Performs a forward pass through the PDC module."""
-        x1 = self.cv1(x)
-        x2 = self.cv2(x1)
-        for m in self.m:
-            x2 = m(x2)
-
-        return x + self.cv3(torch.cat((x1, x2), 1)) if self.add else self.cv3(torch.cat((x1, x2), 1))
+    pass
